@@ -112,7 +112,7 @@ const App = () => {
         }
         { searchState === 'inputNotValid' &&
           <div data-testid="input-not-valid" className='input-invalid'>
-            输入的qq号不是纯数字，并且不能是0开头，5-13位
+            输入的qq号必须是纯数字5-13位，并且不能是0开头。
           </div>
         }
         { searchState === 'error' &&
