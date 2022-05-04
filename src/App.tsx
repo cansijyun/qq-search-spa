@@ -6,14 +6,16 @@ import './App.css';
 
 interface QqRes {
   // qq number
-  qq:string;
+  qq?:string;
   // nickName
-  name:string;
+  name?:string;
   // avatar url 
-  qlogo:string;
+  qlogo?:string;
+  //error messages
+  msg?:string;
 }
 
-type SearchState = 'init' | 'pending' | 'success' | 'noResult' | 'inputNotValid'
+type SearchState = 'init' | 'pending' | 'success' | 'error' | 'inputNotValid' | 'resultIsEmpty'
 
 const App = () => {
   const debounceMillisecond:number = 800; 
@@ -39,17 +41,28 @@ const App = () => {
       setQqRes(qqSearchRes);
       if(qqSearchRes.code === 1){
         setSearchState('success');
+      }else{
+        // catch error when qq server code is not 1;
+        setSearchState('error');
       }
     }else{
       setSearchState('inputNotValid');
     }
 
   }
+  
+  // catch error when promise regected;
   const getQqData = async(qq:string) => {
     return axios.get('https://api.uomg.com/api/qq.info', {
       params: {
         qq: qq,
       }
+    }).catch((err)=>{
+      setSearchState('error');
+      const res = {data:{
+        msg:err
+      }}
+      return res
     })
   }
   // Debouced search 
@@ -100,6 +113,11 @@ const App = () => {
         { searchState === 'inputNotValid' &&
           <div data-testid="input-not-valid" className='input-invalid'>
             输入的qq号不是纯数字，并且不能是0开头，5-13位
+          </div>
+        }
+        { searchState === 'error' &&
+          <div data-testid="input-not-valid" className='input-invalid'>
+            {qqRes?.msg}
           </div>
         }
     </div>
