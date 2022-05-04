@@ -1,0 +1,39 @@
+.app-page{
+  padding: 10px 30px;
+}
+.seach-input{
+  padding-bottom: 10px;
+}
+.seach-input span{
+  margin-right: 10px;
+}
+.seach-input input{
+  border-bottom: 1px solid black;  
+  border-top:0px;  
+  border-left:0px;  
+  border-right:0px;  
+}
+
+.seach-input input:focus {
+  outline: none;
+}
+
+.qq-card{
+  width: 200px;
+  padding: 10px;
+  border: 1px solid black;  
+  border-radius: 4px;
+  display: flex;
+}
+.qq-card .img-placeHolder{
+  width:50px;
+  height:50px;
+  border-radius: 50px;
+  background-color: gray;
+  margin-right: 10px;
+}
+.qq-card .img-placeHolder img{
+  width:50px;
+  height:50px;
+  border-radius: 50px;
+}
