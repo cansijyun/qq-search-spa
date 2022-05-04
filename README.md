@@ -1,4 +1,4 @@
-# QQ number search
+# QQ Number Search
 
 ## Getting Started
 
