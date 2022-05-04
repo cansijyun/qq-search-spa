@@ -42,7 +42,7 @@ const App = () => {
       if(qqSearchRes.code === 1){
         setSearchState('success');
       }else{
-        // catch error when qq server code is not 1;
+        // catch error when qq response code is not 1;
         setSearchState('error');
       }
     }else{
