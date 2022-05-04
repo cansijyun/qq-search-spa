@@ -20,7 +20,8 @@
 
 .qq-card{
   width: 200px;
-  padding: 10px;
+  margin: 20px 0;
+  padding: 20px;
   border: 1px solid black;  
   border-radius: 4px;
   display: flex;
@@ -36,4 +37,21 @@
   width:50px;
   height:50px;
   border-radius: 50px;
+}
+
+.pending-spinner{
+  padding:10px 0;
+  width: 200px;
+  text-align: center;
+  color: #177cb0;
+}
+.pending-spinner .spinner-icon-box {
+  height: 50px;
+}
+.pending-spinner .spinner-icon{
+  width: 50px;
+}
+
+.input-invalid{
+  color: #f00056;
 }

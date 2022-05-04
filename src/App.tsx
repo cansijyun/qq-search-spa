@@ -76,8 +76,13 @@ const App = () => {
         </div>
 
         { searchState === 'pending' &&
-          <div>
-            查找中。。。
+          <div className='pending-spinner'>
+            <div  className='spinner-icon-box'>
+              <img src="/spinner.svg" className='spinner-icon'/>
+            </div>
+            <div>
+              查找中...
+            </div>
           </div>
         }
         { searchState === 'success' &&
@@ -93,7 +98,7 @@ const App = () => {
           </div>
         }
         { searchState === 'inputNotValid' &&
-          <div data-testid="input-not-valid">
+          <div data-testid="input-not-valid" className='input-invalid'>
             输入的qq号不是纯数字，并且不能是0开头，5-13位
           </div>
         }
